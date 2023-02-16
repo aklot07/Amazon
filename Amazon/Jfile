@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    stages {
+        stage ('clean-up') {
+            steps {
+                cleanWs()
+            }
+        }
+                      
+        stage ('build') {
+            
+                steps {
+                dir ('Amazon/Amazon'){
+                    
+                    sh 'mvn clean install'
+            
+                }
+                
+                    
+            }
+            
+        }
+        
+        stage ('test') {
+          
+                steps {
+                    dir ('Amazon/Amazon') {
+                    archiveArtifacts artifacts: 'Amazon-Web/target/*.war', followSymlinks: false
+                }
+            }
+        }
+        
+        stage ('run') {
+            steps {
+                dir ('Amazon/Amazon') {
+                    sh 'cp Amazon-Web/target/*.war /opt/tomcat/webapps'
+                }
+            }
+        }
+    }
+}
