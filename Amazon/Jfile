@@ -10,9 +10,8 @@ pipeline {
         stage ('build') {
             
                 steps {
-                dir ('Amazon'){
-                    
-                    sh 'mvn clean install'
+                                        
+                    sh 'Amazon/mvn clean install'
             
                 }
                 
