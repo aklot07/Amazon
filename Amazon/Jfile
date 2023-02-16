@@ -10,7 +10,7 @@ pipeline {
         stage ('build') {
             
                 steps {
-                dir ('Amazon/Amazon'){
+                dir ('Amazon'){
                     
                     sh 'mvn clean install'
             
@@ -24,7 +24,7 @@ pipeline {
         stage ('test') {
           
                 steps {
-                    dir ('Amazon/Amazon') {
+                    dir ('Amazon') {
                     archiveArtifacts artifacts: 'Amazon-Web/target/*.war', followSymlinks: false
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
         
         stage ('run') {
             steps {
-                dir ('Amazon/Amazon') {
+                dir ('Amazon') {
                     sh 'cp Amazon-Web/target/*.war /opt/tomcat/webapps'
                 }
             }
