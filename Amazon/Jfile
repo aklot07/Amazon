@@ -26,8 +26,8 @@ pipeline {
         
         stage ('run') {
             steps {
-                
-                    sh 'cp Amazon/Amazon-Web/target/*.war /opt/tomcat/webapps'
+                    echo "Testing"
+                    //sh 'cp Amazon/Amazon-Web/target/*.war /opt/tomcat/webapps'
                 
             }
         }
