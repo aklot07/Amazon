@@ -1,2 +1,2 @@
 !#/bin/bash
-cp Amazon-Web/target/*.war <tomcathome>/webapps/
+cp Amazon/Amazon-Web/target/*.war <tomcathome>/webapps/
