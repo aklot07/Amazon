@@ -28,7 +28,7 @@ pipeline {
             steps {
                     //echo "Testing"
                     //sh 'rm -rf Amazon/Amazon-Web/target/*.war'
-                    sh 'deploy.sh'
+                    sh 'Amazon/deploy.sh'
                 
             }
         }
