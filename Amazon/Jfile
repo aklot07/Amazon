@@ -28,7 +28,7 @@ pipeline {
             steps {
                     //echo "Testing"
                     //sh 'rm -rf Amazon/Amazon-Web/target/*.war'
-                    sh 'Amazon/deploy.sh'
+                    sh 'cp Amazon/Amazon-Web/target/*.war <tomcathome>/webapps/'
                 
             }
         }
