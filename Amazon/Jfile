@@ -6,7 +6,7 @@ pipeline {
             
                 steps {
                     dir ('Amazon'){                    
-                    sh 'mvn clean install -Dskiptests'
+                    sh 'mvn clean install -DSkipTests'
                     }
                 }
                 
@@ -28,7 +28,7 @@ pipeline {
             steps {
                     //echo "Testing"
                     //sh 'rm -rf Amazon/Amazon-Web/target/*.war'
-                    sh 'sudo cp Amazon/Amazon-Web/target/*.war ~/Downloads/tomcat_main/webapps'
+                    sh 'deploy.sh'
                 
             }
         }
