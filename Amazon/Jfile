@@ -15,20 +15,19 @@ pipeline {
             
         
         
-        stage ('test') {
+        stage ('tomcat') {
           
-                steps {
-                    dir('/home/ak_linuxAzure/Downloads/tomcat_main/bin'){
+                steps {                  
+                        sh '/home/ak_linuxAzure/Downloads/tomcat_main/bin/startup.sh'
+                        //archiveArtifacts artifacts: 'Amazon/Amazon-Web/target/*.war', followSymlinks: false
                     
-                        sh startup.sh
-                        archiveArtifacts artifacts: 'Amazon/Amazon-Web/target/*.war', followSymlinks: false
-                    }
             }
         }
         
         stage ('run') {
             steps {
                     //echo "Testing"
+                    //sh 'rm -rf Amazon/Amazon-Web/target/*.war'
                     sh 'cp Amazon/Amazon-Web/target/*.war /home/ak_linuxAzure/Downloads/tomcat_main/webapps'
                 
             }
