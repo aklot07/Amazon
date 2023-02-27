@@ -28,7 +28,7 @@ pipeline {
             steps {
                     //echo "Testing"
                     //sh 'rm -rf Amazon/Amazon-Web/target/*.war'
-                    sh 'cp Amazon/Amazon-Web/target/*.war ~/Downloads/tomcat_main/webapps'
+                    sh 'sudo cp Amazon/Amazon-Web/target/*.war ~/Downloads/tomcat_main/webapps'
                 
             }
         }
