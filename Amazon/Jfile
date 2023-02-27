@@ -18,7 +18,7 @@ pipeline {
         stage ('tomcat') {
           
                 steps {                  
-                        sh '/home/ak_linuxAzure/Downloads/tomcat_main/bin/startup.sh'
+                        sh '/home/ak_linuxAzure/Downloads/tomcat_main/bin/catalina.sh run'
                         //archiveArtifacts artifacts: 'Amazon/Amazon-Web/target/*.war', followSymlinks: false
                     
             }
@@ -28,7 +28,7 @@ pipeline {
             steps {
                     //echo "Testing"
                     //sh 'rm -rf Amazon/Amazon-Web/target/*.war'
-                    sh 'cp Amazon/Amazon-Web/target/*.war <tomcathome>/webapps/'
+                    sh 'cp Amazon/Amazon-Web/target/*.war /opt/tomcat_main/webapps/'
                 
             }
         }
