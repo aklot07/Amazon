@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+            stage ('clean up') {
+	        steps {
+	            cleanWs()
+	        }
+	    }         
+      stage('Clone sources') {
+            steps {
+                sh 'git clone https://github.com/aklot07/Amazon'
+            }
+        }
+      stage('SonarQube analysis') {
+            steps {
+		   dir ('Amazon/Amazon'){ 
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn clean package sonar:sonar'
+			              }
+                   }
+               }
+           }         
+        }
+    }
