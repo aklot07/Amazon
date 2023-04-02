@@ -11,9 +11,16 @@ pipeline {
                 sh 'git clone https://github.com/aklot07/Amazon'
             }
         }
+	    stage('Build jar') {
+		    steps {
+			    dir ('Amazon/Amazon/Amazon-core'){
+				    sh 'mvn clean package'
+			    }
+		    }
+	    }	    
       stage('SonarQube analysis') {
             steps {
-		   dir ('Amazon/Amazon'){ 
+		   dir ('Amazon/Amazon/Amazon-web'){ 
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn clean package sonar:sonar'
 			              }
