@@ -13,14 +13,14 @@ pipeline {
         }
 	    stage('Build jar') {
 		    steps {
-			    dir ('Amazon/Amazon/Amazon-core'){
+			    dir ('Amazon/Amazon/Amazon-Core'){
 				    sh 'mvn clean package'
 			    }
 		    }
 	    }	    
       stage('SonarQube analysis') {
             steps {
-		   dir ('Amazon/Amazon/Amazon-web'){ 
+		   dir ('Amazon/Amazon/Amazon-Web'){ 
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn clean package sonar:sonar'
 			              }
